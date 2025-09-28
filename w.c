@@ -178,7 +178,7 @@ void seat_cap(void* data, struct wl_seat* seat, uint32_t cap) {
 	}
 }
 
-void seat_name(void* data, struct wl_seat* seat, int8_t* name) {
+void seat_name(void* data, struct wl_seat* seat, const char* name) {
 		
 }
 
@@ -187,7 +187,7 @@ struct wl_seat_listener seat_list = {
 	.name = seat_name
 };
 
-void reg_glob(void* data, struct wl_registry* reg, uint32_t name, int8_t* intf, uint32_t v) {
+void reg_glob(void* data, struct wl_registry* reg, uint32_t name, const char* intf, uint32_t v) {
 	if (!strcmp(intf, wl_compositor_interface.name)) {
 		comp = wl_registry_bind(reg, name, &wl_compositor_interface, 4);
 	}
